@@ -1,0 +1,165 @@
+/*style for the base*/
+.menu {
+    /*--menu-height: 40px;*/
+    width:100%;
+    box-sizing: border-box;
+}
+
+.nav.link.right {
+    /* Pushes the item to the right */
+    /* Can only be used for 1 element right now*/
+    margin-left: auto;
+}
+
+.menu * {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    font-weight:700;
+    color: #fff;
+    transition: 200ms;
+    align-items: center;
+}
+
+.menu .navbar {
+    font-size: 24px;
+    display: flex;
+    height: inherit;
+    /*height: var(--menu-height);*/
+    background-color: #111;
+}
+
+.menu .navbar > * {
+    /*height:var(--menu-height);*/
+    height: inherit;
+    padding-left:10px;
+}
+.menu .nav:hover {
+    background-color: #222;
+}
+
+.menu .subbar {
+    font-size: 20px;
+    background-color: #222;
+    transition-delay: 200ms;
+}
+.menu .subbar > * {
+    height: 30px;
+    padding-left:8px;
+}
+.menu .drop:hover {
+    background-color: #111;
+}
+
+/*style of the box for a link*/
+.menu ul li,        .menu ul li a           { opacity: 0.8; }
+.menu ul li.active, .menu ul li.active a    { opacity: 0.9; }
+.menu ul li:hover,  .menu ul li a:hover     { opacity: 1; }
+
+/*style for the link*/
+.menu .link a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/*nav visual*/
+.menu .link {
+    position: relative;
+    padding-right:36px;
+}
+/*dropdown visual*/
+.menu .subbar {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left:0;
+}
+/*nested dropdown visual*/
+.menu .subbar .subbar {
+    top: 0;
+    left: 100%;
+}
+.menu .dropdown:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 50ms;
+}
+
+
+/*vertical line between items on navbar (was :not(:last-child ))*/
+.menu .nav:not(:first-child)::before{
+    content:"";
+    border: solid #929292;
+    border-width: 1px 1px 0 0;
+    position:absolute;
+    left:0;
+    top:15%;
+    height:70%;
+}
+
+/*arrow down (nav)*/
+.menu .nav > a::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ffaa22;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/*arrow right (drop*/
+.menu .drop > a::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #ffaa22;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/*not displaying arrow for items that are not a dropdown*/
+.menu :not(.dropdown) > a::before {
+    padding-right: 0;
+    display: none;
+}
+
+/*line in>out*/
+.menu .nav:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 50%;
+    bottom:0;
+    background-color: #ffaa22;
+    transition: all ease-in-out .15s;
+}
+/*line left>right*/
+.menu .drop:after{
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 2px;
+     left: 0;
+     bottom:0;
+     background-color: #ffaa22;
+     transition: width ease-in .25s;
+ }
+/*display line*/
+.menu .link:hover::after{
+    width: 100%;
+    left: 0;
+}
+
+
+
+
+
+
