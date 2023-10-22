@@ -17,6 +17,11 @@
 
 * {
 	padding: 0;
+	text-decoration: none;
+	color: var(--text-color);
+}
+a:active {
+	color: var(--secondary-color);
 }
 body > * { /* all direct children of body */
 	/*box-shadow: 2px 2px 2px 2px #675a5a8f;*/

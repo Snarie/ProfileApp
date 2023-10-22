@@ -6,8 +6,6 @@ require 'partials/header.php';
 ?>
 <main id="main">
 	<?php
-	$route = $_SERVER['PATH_INFO'] ?? '/';
-	$parts = explode('/', $route);
 	include 'views/partials/profilenav.php';
 	?>
 	<content class="profile-grid">

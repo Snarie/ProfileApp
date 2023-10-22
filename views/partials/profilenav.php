@@ -1,4 +1,7 @@
-<?php $id = explode('/', $_SERVER['PATH_INFO'])[2];;?>
+<?php
+//$route = $route ?? '/';
+$id = explode('/', $_SERVER['PATH_INFO'])[2];;
+?>
 <div class="menu" style="height:40px; ">
     <ul class="navbar menu-left">
 <!--        <li class="nav link" id="/"><a href="/">Home</a></li>-->
@@ -43,5 +46,5 @@
     </ul>
 </div>
 <script>
-highlightActiveLink();
+highlightActiveLink('<?=$route?>');
 </script>

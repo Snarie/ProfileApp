@@ -36,14 +36,15 @@ $conn = require 'private.php';
 
 require 'autologin.php';
 
-$route = $_SERVER['PATH_INFO'] ?? '/';
-$parts = explode('/', $route);
+$path = $_SERVER['PATH_INFO'] ?? '/';
+//echo $path." ";
+$parts = explode('/', $path);
 if($parts[1] === 'profile'){
     unset($parts[2]);
 }
 
 $route = join('/', array_values($parts));
-//echo $route;
+//echo $route." ";
 if(array_key_exists($route, $routes)){
     require $routes[$route];
 //    echo $route."<br>";

@@ -1,8 +1,9 @@
 //var OneClick = document.getElementsById("#link");
 //OneClick.addEventListener('click', OnOneClick, false);
 
+function highlightActiveLink(url){
 
-function highlightActiveLink(){
+
     let loc_href = document.URL;
     loc_href = loc_href.endsWith('/') ? loc_href.substring(0, loc_href.length - 1) : loc_href;
     loc_href = loc_href.replace("http://"+window.location.host, "");
@@ -33,9 +34,14 @@ function processPath(path) {
 
         //query searching for a correct href
         const query = "a[href='"+currentPath+"']";
+        const links = document.querySelectorAll(query);
+        if(links){
+            Array.from(links).forEach(function(link) {
+                link.classList.add('active');
+            })
+        }
         //execute query and add active class to results parentElement
-        document.querySelector(query).parentElement.classList.add('active');
-
+        // document.querySelector(query).classList.add('active');
     }
     return result;
 }

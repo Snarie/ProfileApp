@@ -24,6 +24,9 @@
     align-items: center;
     z-index: 1;
 }
+.menu .active {
+    color: var(--secondary-color);
+}
 
 .menu .navbar {
     font-size: 24px;
