@@ -1,14 +1,17 @@
 /*style for the base*/
 .menu {
     /*--menu-height: 40px;*/
-    width:100%;
+    width:inherit;
     box-sizing: border-box;
+    background-color: var(--main-color);
 }
-
-.nav.link.right {
-    /* Pushes the item to the right */
-    /* Can only be used for 1 element right now*/
-    margin-left: auto;
+.menu-left {
+    float:left;
+    position: relative;
+}
+.menu-right {
+    float:right;
+    position: relative;
 }
 
 .menu * {
@@ -19,6 +22,7 @@
     color: #fff;
     transition: 200ms;
     align-items: center;
+    z-index: 1;
 }
 
 .menu .navbar {
@@ -26,7 +30,7 @@
     display: flex;
     height: inherit;
     /*height: var(--menu-height);*/
-    background-color: #111;
+    background-color: var(--main-color);
 }
 
 .menu .navbar > * {
@@ -35,12 +39,12 @@
     padding-left:10px;
 }
 .menu .nav:hover {
-    background-color: #222;
+    background-color: var(--tetriary-color);
 }
 
 .menu .subbar {
     font-size: 20px;
-    background-color: #222;
+    background-color: var(--tetriary-color);
     transition-delay: 200ms;
 }
 .menu .subbar > * {
@@ -48,7 +52,7 @@
     padding-left:8px;
 }
 .menu .drop:hover {
-    background-color: #111;
+    background-color: var(--main-color);
 }
 
 /*style of the box for a link*/
@@ -105,7 +109,7 @@
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #ffaa22;
+    border-top: 5px solid var(--secondary-color);
     position: absolute;
     right: 8px;
     top: 50%;
@@ -118,7 +122,7 @@
     height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 5px solid #ffaa22;
+    border-left: 5px solid var(--secondary-color);
     position: absolute;
     right: 8px;
     top: 50%;
@@ -138,7 +142,7 @@
     height: 3px;
     left: 50%;
     bottom:0;
-    background-color: #ffaa22;
+    background-color: var(--secondary-color);
     transition: all ease-in-out .15s;
 }
 /*line left>right*/
@@ -149,7 +153,7 @@
      height: 2px;
      left: 0;
      bottom:0;
-     background-color: #ffaa22;
+     background-color: var(--secondary-color);
      transition: width ease-in .25s;
  }
 /*display line*/

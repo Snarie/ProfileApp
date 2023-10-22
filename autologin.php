@@ -3,6 +3,7 @@ $loginmsg = "";
 session_start();
 if(isset($_SESSION['user_id'])) {
     //valid session is found
+	userName($_SESSION['user_id'], $conn);
     $loginmsg = "valid session";
 
 } elseif(isset($_COOKIE['remember_me'])) {
@@ -23,6 +24,20 @@ if(isset($_SESSION['user_id'])) {
     if($result){
         //valid cookie is found
         $_SESSION['user_id'] = $user_id;
+		userName($_SESSION['user_id'], $conn);
         $loginmsg = "valid cookie";
     }
+}
+function userName($user_id, $conn): void
+{
+	if(isset($_SESSION['username'])){
+		return;
+	}
+	$sql = "SELECT username FROM users where id = :user_id";
+	$stmt = $conn->prepare($sql);
+	$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+	$stmt->execute();
+
+	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	$_SESSION['username'] = $result['username'];
 }

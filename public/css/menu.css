@@ -1,39 +1,41 @@
+:root {
+	--main-color: #111;
+	--secondary-color: #ffaa55;
+	--tetriary-color: #222;
+	--background-color: #040404;
+	--text-color: #ccc;
+}
+.banner {
+	box-sizing: border-box;
+}
+.banner > * {
+	height: inherit;
+	display: flex;
+	align-items: center;
+}
+
+
 * {
 	padding: 0;
-	box-sizing: border-box;
-	/*border-radius: 5px;*/
 }
 body > * { /* all direct children of body */
 	/*box-shadow: 2px 2px 2px 2px #675a5a8f;*/
 }
 body {
 	font-size: 1.5rem;
-	display: grid;
 	gap: 8px;
 	margin: 8px;
-	/*grid-template-columns: 85px 1fr;*/
-	grid-template-rows: 200px 1fr 40px;
-	grid-template-columns: 10% 80% 10%;
-	grid-template-areas:
-		". header ."
-		". main ."
-		"footer footer footer";
-	/*width: calc(100vw - 16px);*/
-	/*height: calc(100vh - 16px);*/
 	height:100%;
-	background-color: #111;
+	background-color: var(--background-color);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
+	header .menu{
+		display: none;
+	}
+
 	body {
 		min-width: 500px;
 		min-height: 500px;
-		grid-template-columns: 1fr;
-		grid-template-rows: 30px 50px 4fr 0.3fr;
-		grid-template-areas: 
-			"header"
-			"sidebar"
-			"main"
-			"footer";
 	}
 	.icon-text {
 		display: none;
@@ -45,50 +47,23 @@ body {
 		margin: 4px auto;
 	}
 }
-.grid-left {
-	grid-area: left;
-}
-.grid-right {
-	grid-area: right;
-}
+
 .profile-icon-large {
-	width:90%;
+	width:100%;
 	aspect-ratio: 1/1;
 	object-fit: cover;
 }
-.grid-main {
-	display:grid;
-	grid-template-columns: 0.25fr 0.75fr;
-	grid-template-areas:
-	"left right";
-	gap:10px;
-	/*border: 1px solid #4CAF50;*/
-	grid-row-gap: 20px;
-	padding: 10px;
-	height:100%;
-}
-.grid-left {
-	border-right: 2px solid #4CAF50;
-	/*border-height:80%;*/
-}
-main {
-	display: grid;
-	grid-template-rows: 40px 2fr;
-	grid-template-areas: 
-		"section"
-		"content";
-	gap: 4px;
-	/*padding: 4px;*/
-	padding: 1px;
+section {
+	padding: 5px;
 }
 main p, footer, header, section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	/*display: flex;*/
+	/*flex-direction: column;*/
+	/*justify-content: center;*/
+	/*align-items: center;*/
 }
 content {
-	justify-content: flex-start;
+	/*justify-content: flex-start;*/
 }
 main > p { /* all direct children of main */
 	background-color: #ccc;
@@ -109,24 +84,10 @@ main {
 	background-color: green;
 	min-height: 1800px;
 }
-/*sidebar a {*/
-/*	padding: 8px 8px 8px 32px;*/
-/*	text-decoration: none;*/
-/*	font-size: 25px;*/
-/*	color: #818181;*/
-/*	display: block;*/
-/*}*/
-sidebar a:hover {
-	color: #f1f1f1;
-}
 footer {
 	grid-area: footer;
 	background-color: yellow;
 }
-/*section {*/
-/*	grid-area: section;*/
-/*	background-color: orange;*/
-/*}*/
 article {
 	padding: 10px;
 	justify-content: left;
@@ -146,22 +107,21 @@ article p:first-child {
 content {
 	grid-area: content;
 	background-color: purple;
-	padding: 5px;
 }
-p ~ span { /* all span after p */
+p ~ span {
 	font-size: 1rem;
 	font-weight: normal;
 	color: #000;
 	text-decoration: none;
 }
-p ~ span::before, p ~ span::after { /* before all span after p */
+p ~ span::before, p ~ span::after {
 	white-space: pre;
 	color: red;
 }
-p ~ span::before { /* before all span after p */
-	content: "\21AA"; /* see: https://www.toptal.com/designers/htmlarrows/ */
+p ~ span::before {
+	content: "\21AA";
 }
-p ~ span::after { /* after all span after p */
+p ~ span::after {
 	content: "\21A9"; 
 }
 p ~ span:hover, p ~ span:hover::before, p ~ span:hover::after { /* hover all span after p */
@@ -181,10 +141,6 @@ p ~ span:hover, p ~ span:hover::before, p ~ span:hover::after { /* hover all spa
 h2 {
 	font-size: 2rem;
 }
-/*.active {*/
-/*	background-color: #4CAF50;*/
-/*	color: white;*/
-/*}*/
 .table {
 	display: table;
 	margin: 0 10px 0 10px;
@@ -192,10 +148,13 @@ h2 {
 .row {
 	display: table-row;
  }
- 
+
  .cell {
-	display: table-cell;
-	margin: 4px;
+	 display: table-cell;
+	 margin: 4px;
+ }
+ a {
+	 text-decoration: none;
  }
  
  .row,

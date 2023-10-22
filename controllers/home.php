@@ -6,5 +6,5 @@
 // $data = $stmt->fetch(PDO::FETCH_ASSOC);
 // $mySection = $data['title'];
 // $myContent = $data['content'];
-
+$content = "";
 require 'views/base.view.php';

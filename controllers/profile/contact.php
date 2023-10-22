@@ -18,5 +18,5 @@ $sql = "SELECT * FROM content where page='contact'";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-$content = $data['content'];
-require 'views/base.view.php';
+$content = "<p>Contact</p><p>Adres<br>Woonplaats</p>";
+require 'views/profile.view.php';

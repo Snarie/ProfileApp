@@ -114,13 +114,13 @@ delete
 from profile
 where id = 10;
 
-alter table profile
+alter table profiles
     modify id int;
 
-insert into profile (id, firstname, lastname, email)
+insert into profiles (id, firstname, lastname, email)
     value (1, 'Stephan', 'Hoeksema', 's.hoeksema@windesheim.nl');
 
-insert into profile (id, firstname, lastname, email)
+insert into profiles (id, firstname, lastname, email)
     value (4, 'Quinten', 'Tahepary', 's1202007@student.windesheim.nl');
 
 

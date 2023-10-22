@@ -1,8 +1,17 @@
 <header>
-    <div class="menu" style="height:50px">
-        <ul class="navbar">
-            <!--        <li class="nav link" id="/"><a href="/">Home</a></li>-->
-            <li class="nav link" id="/home"><a href="/home">Home</a></li>
+    <div class="banner row-small">
+        <a class="left" style="font-size: 36px; font-weight:1000;">ProfileApp</a>
+        <?php
+        if(isset($_SESSION['username'])){
+
+            echo "<a class='right'>".$_SESSION['username']."</a>";
+        }
+        ?>
+
+    </div>
+    <div class="menu row-small">
+        <ul class="navbar menu-left">
+            <li class="nav link" id="/"><a href="/">Home</a></li>
             <li class="nav link dropdown" id="/forum">
                 <a>Forum</a>
                 <ul class="subbar">
@@ -17,7 +26,10 @@
             <li class="nav link" id="/about">
                 <a href="/about">About us</a>
             </li>
-            <li class="nav link right" id="/help">
+
+        </ul>
+        <ul class="navbar menu-right">
+            <li class="nav link" id="/help">
                 <a href="/help">Help</a>
             </li>
         </ul>

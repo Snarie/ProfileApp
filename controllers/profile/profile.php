@@ -13,13 +13,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$content = '
-<article class="grid-main">
-    <div class="grid-left">
-        <img class="profile-icon-large" src="/public/images/moveIcon_def.png" alt="profile">
-        wefejqnfiquvnipureh
-    </div>
-    <div class="grid-right">';
+$content = '';
 foreach($results as $result) {
     $content .= $result['name']."<br>";
 }
@@ -34,4 +28,4 @@ $content .= '
     </div>
 </article>';
 //require 'views/base.view.php';
-require 'views/base.view.php';
+require 'views/profile.view.php';
