@@ -8,14 +8,18 @@
 .banner {
 	box-sizing: border-box;
 }
-.banner > * {
-	height: inherit;
-	display: flex;
+.banner * {
+	font-weight: bold;
+	padding:5px;
+	display: inline-flex;
 	align-items: center;
+	align-content: center;
+	position: relative;
 }
 
 
 * {
+	margin: 0;
 	padding: 0;
 	text-decoration: none;
 	color: var(--text-color);
@@ -34,7 +38,7 @@ body {
 	background-color: var(--background-color);
 }
 @media screen and (max-width: 800px) {
-	header .menu{
+	header > .menu{
 		display: none;
 	}
 
@@ -58,6 +62,11 @@ body {
 	aspect-ratio: 1/1;
 	object-fit: cover;
 }
+.icon-fit {
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
 section {
 	padding: 5px;
 }
@@ -68,6 +77,7 @@ main p, footer, header, section {
 	/*align-items: center;*/
 }
 content {
+	height: inherit;
 	/*justify-content: flex-start;*/
 }
 main > p { /* all direct children of main */
@@ -82,7 +92,7 @@ p {
 }
 header {
 	grid-area: header;
-	background-color: red;
+	background-color: var(--background-color);
 }
 main {
 	grid-area: main;
@@ -154,29 +164,55 @@ h2 {
 	display: table-row;
  }
 
- .cell {
-	 display: table-cell;
-	 margin: 4px;
- }
- a {
-	 text-decoration: none;
- }
+.cell {
+	display: table-cell;
+	margin: 4px;
+}
+a {
+	text-decoration: none;
+}
  
- .row,
- .cell {
-   padding: 10px;
+.row,
+.cell {
+	padding: 10px;
    border: 1px solid #ccc;
- }
+}
 
- .cell:nth-child(1) {
-   font-weight: bold;
-   color: yellow;
- }
- .map-container {
+.cell:nth-child(1) {
+	font-weight: bold;
+	color: yellow;
+}
+.map-container {
 	width: 200px; /* Aanpassen aan de gewenste breedte */
 	height: 200px; /* Aanpassen aan de gewenste hoogte */
-	 overflow: hidden;
-  }
-  .leaflet-popup-content {
+	overflow: hidden;
+}
+
+.leaflet-popup-content {
 	color: black;
-  }
+}
+.arrow-down {
+}
+i.arrow-down {
+	position: relative;
+	height: inherit;
+	width: 10px;
+	left: 1px;
+}
+.arrow-down::after {
+	content: '';
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid var(--secondary-color);
+	position: absolute;
+	top: 60%;
+	transform: translateY(-50%);
+}
+.link:hover {
+	background-color: var(--tetriary-color);
+}
+a:hover {
+	/*background-color: var(--tetriary-color);*/
+}

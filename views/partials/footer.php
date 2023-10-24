@@ -1,3 +1,3 @@
-        <footer class="row-default">Footer</footer>
+        <footer class="row-default"><?php $loginmsg;?></footer>
     </body>
 </html>

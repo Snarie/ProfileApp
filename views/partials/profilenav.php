@@ -5,7 +5,7 @@ $id = explode('/', $_SERVER['PATH_INFO'])[2];;
 <div class="menu" style="height:40px; ">
     <ul class="navbar menu-left">
 <!--        <li class="nav link" id="/"><a href="/">Home</a></li>-->
-        <li class="nav link" id="/profile"><a href="/profile/<?=$id?>">Profile</a></li>
+        <li class="nav link" id="/profile"><a href="/profile/<?=$id?>"><?=$id?>'s Profile</a></li>
         <li class="nav link dropdown" id="profile/details">
             <a>Details</a>
             <ul class="subbar">
@@ -45,6 +45,3 @@ $id = explode('/', $_SERVER['PATH_INFO'])[2];;
 
     </ul>
 </div>
-<script>
-highlightActiveLink('<?=$route?>');
-</script>

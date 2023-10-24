@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/public/css/menu.css">
     <link rel="stylesheet" href="/public/css/profilenav.css">
     <link rel="stylesheet" href="/public/css/grid.css">
+    <link rel="stylesheet" href="/public/css/container.css">
     <script src="/public/js/profilenav.js"></script>
 	<script src="/public/js/menu.js"></script>
 </head>

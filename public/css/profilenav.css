@@ -33,7 +33,7 @@
     display: flex;
     height: inherit;
     /*height: var(--menu-height);*/
-    background-color: var(--main-color);
+    /*background-color: var(--main-color);*/
 }
 
 .menu .navbar > * {
@@ -81,6 +81,7 @@
     visibility: hidden;
     opacity: 0;
     left:0;
+    top: 100%;
 }
 /*nested dropdown visual*/
 .menu .subbar .subbar {
@@ -165,8 +166,9 @@
     left: 0;
 }
 
-
-
+.menu .no-padding {
+    padding: 0;
+}
 
 
 

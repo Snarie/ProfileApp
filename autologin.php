@@ -26,6 +26,13 @@ if(isset($_SESSION['user_id'])) {
         $_SESSION['user_id'] = $user_id;
 		userName($_SESSION['user_id'], $conn);
         $loginmsg = "valid cookie";
+    } else {
+	    $sql = "DELETE FROM remember_tokens WHERE user_id = :user_id AND token = :token";
+	    $stmt = $conn->prepare($sql);
+	    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+	    $stmt->bindParam(':token', $token, PDO::PARAM_STR);
+	    $stmt->execute();
+
     }
 }
 function userName($user_id, $conn): void
@@ -41,3 +48,5 @@ function userName($user_id, $conn): void
 	$result = $stmt->fetch(PDO::FETCH_ASSOC);
 	$_SESSION['username'] = $result['username'];
 }
+//echo $_COOKIE['remember_me'];
+//echo $loginmsg;

@@ -17,14 +17,8 @@ $content = '';
 foreach($results as $result) {
     $content .= $result['name']."<br>";
 }
-
-$sql = "SELECT username FROM users WHERE id = :user_id";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-$stmt->execute();
-$name = $stmt->fetch(PDO::FETCH_ASSOC);
+//$content .= $name;
 $content .= '
-' . $name['username'] . '
     </div>
 </article>';
 //require 'views/base.view.php';

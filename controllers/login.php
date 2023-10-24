@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     setcookie('remember_me', $user_id . ':' . $token, $expiration, '/');
 
                 }
+				header('location: /');
             } else {
                 $message .= "Login failed. Check your username and password.";
             }
