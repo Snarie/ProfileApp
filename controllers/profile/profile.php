@@ -21,5 +21,19 @@ foreach($results as $result) {
 $content .= '
     </div>
 </article>';
+
+$links = "";
+if(isset($_SESSION['username'])) {
+	if($name === $_SESSION['username']) {
+		$links = "
+	<ul class='navbar menu-right'>
+	<li class='nav link'>
+	
+		<a href='/edit/profile'><i class='material-symbols-outlined'>edit_square</i>Edit profile</a>
+	</li>
+	</ul>	
+	";
+	}
+}
 //require 'views/base.view.php';
 require 'views/profile.view.php';

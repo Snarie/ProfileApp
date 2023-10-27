@@ -1,9 +1,15 @@
 :root {
-	--main-color: #111;
-	--secondary-color: #ffaa55;
-	--tetriary-color: #222;
-	--background-color: #040404;
-	--text-color: #ccc;
+	--main-color: #222;
+	--main-color-2: #333;
+	--main-color-3: #393939;
+	--main-color-4: #3e3e3e;
+	--main-color-5: #666;
+	--secondary-color: #ffbb33;
+	--secondary-color-2: #ee9900;
+	--secondary-color-3: #cc7722;
+	--background-color: #111;
+	--text-color: #ddd;
+	--text-color-2: #eee;
 }
 .banner {
 	box-sizing: border-box;
@@ -17,7 +23,28 @@
 	position: relative;
 }
 
-
+button.smallbtn {
+	height: 35px;
+	width: 75px;
+	font-size: 13px;
+	border: none;
+	border-radius: 8px; /* Adjust this value to control the button's curve */
+	color: white;
+	padding: 4px 12px;
+	cursor: pointer;
+}
+button.status-add {
+	background-color: var(--secondary-color-2);
+}
+button.status-add:hover {
+	background-color: var(--secondary-color-3);
+}
+button.status-remove {
+	background-color: var(--main-color-5);
+}
+button.status-remove:hover {
+	background-color: var(--main-color-4);
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -25,7 +52,7 @@
 	color: var(--text-color);
 }
 a:active {
-	color: var(--secondary-color);
+	/*color: var(--secondary-color);*/
 }
 body > * { /* all direct children of body */
 	/*box-shadow: 2px 2px 2px 2px #675a5a8f;*/
@@ -52,7 +79,7 @@ body {
 }
 @media screen and (min-width: 1000px) {
 	body {
-		max-width: 1600px;
+		/*max-width: 1600px;*/
 		margin: 4px auto;
 	}
 }
@@ -78,6 +105,7 @@ main p, footer, header, section {
 }
 content {
 	height: inherit;
+	padding: 10px;
 	/*justify-content: flex-start;*/
 }
 main > p { /* all direct children of main */
@@ -96,7 +124,7 @@ header {
 }
 main {
 	grid-area: main;
-	background-color: green;
+	background-color: var(--main-color-5);
 	min-height: 1800px;
 }
 footer {
@@ -111,17 +139,16 @@ article p {
 	color: black;
 	margin-block-start: 0;
     margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     align-items: flex-start;
 }
 article p:first-child {
 	font-size: 2rem;
-	color: white;
 }
 content {
 	grid-area: content;
-	background-color: purple;
+	background-color: var(--main-color);
 }
 p ~ span {
 	font-size: 1rem;
@@ -147,10 +174,10 @@ p ~ span:hover, p ~ span:hover::before, p ~ span:hover::after { /* hover all spa
 .material-icons,
 .icon-text {
 	vertical-align: middle;
+	font-size: calc(100% - 3px);
 }
 .material-symbols-outlined,
 .material-icons {
-	padding-bottom: 3px;
 	margin-right: 30px;
 }
 h2 {
@@ -175,7 +202,7 @@ a {
 .row,
 .cell {
 	padding: 10px;
-   border: 1px solid #ccc;
+   border: 1px solid var(--main-color-5);
 }
 
 .cell:nth-child(1) {
@@ -211,8 +238,15 @@ i.arrow-down {
 	transform: translateY(-50%);
 }
 .link:hover {
-	background-color: var(--tetriary-color);
+	background-color: var(--main-color-2);
 }
 a:hover {
 	/*background-color: var(--tetriary-color);*/
+}
+table {
+	border-collapse: collapse;
+}
+table td {
+	border-bottom: 1px solid var(--main-color-5);
+	border-right: 0;
 }

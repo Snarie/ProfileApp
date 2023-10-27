@@ -137,9 +137,17 @@ FROM users
 
 select * from hobbies;
 
+drop table users;
 
+create table users
+(
+    id          int auto_increment primary key,
+    username   varchar(32)                           not null,
+    password   varchar(255)                          null,
+    created_at timestamp default current_timestamp() null,
+    updated_at timestamp default current_timestamp() null on update current_timestamp(),
+    constraint username
+        unique (username)
+);
 
-
-insert into profiles
-
-
+select * from hobbies

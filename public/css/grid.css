@@ -14,25 +14,29 @@ header {
 }
 .row-smallest {
     height: 35px;
+    font-size: 20px;
 }
 .row-smaller {
     height:40px;
+    font-size: 22px;
 }
 .row-small {
     height: 50px;
+    font-size: 24px;
 }
 .row-default {
     height:60px;
+    font-size: 27px;
 }
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: auto 80% auto;
     grid-template-areas:
 		". header ."
 		". main ."
 		"footer footer footer";
-    grid-gap: 100px;
+    grid-row-gap: 100px;
 }
 
 @media screen and (max-width: 800px) {
@@ -52,11 +56,23 @@ main {
     grid-template-areas:
 		"."
 		"content";
-    gap: 4px;
+    gap: 2px;
     /*padding: 4px;*/
     padding: 1px;
 }
 
+.edit-grid {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100%;
+    grid-template-areas:
+        ". middle .";
+    padding: 10px;
+
+}
+.edit-grid section {
+    width: 80%;
+}
 
 .profile-grid {
     display:grid;
@@ -86,7 +102,7 @@ main {
 @media screen and (min-width:801px) {
     .area-right::before {
         content:"";
-        border: solid #929292;
+        border: solid var(--main-color-5);
         border-width: 1px 1px 0 0;
         position:absolute;
         left:0;

@@ -2,46 +2,37 @@
 //$route = $route ?? '/';
 $id = explode('/', $_SERVER['PATH_INFO'])[2];;
 ?>
-<div class="menu" style="height:40px; ">
+<div class="menu row-small">
     <ul class="navbar menu-left">
-<!--        <li class="nav link" id="/"><a href="/">Home</a></li>-->
-        <li class="nav link" id="/profile"><a href="/profile/<?=$id?>"><?=$id?>'s Profile</a></li>
-        <li class="nav link dropdown" id="profile/details">
+        <li class="nav link"><a href="/profile/<?=$id?>"><?=$id?>'s Profile</a></li>
+        <li class="nav link dropdown">
             <a>Details</a>
             <ul class="subbar">
-                <li class="drop link" id="/profile/grades">
+                <li class="drop link">
                     <a href="/profile/<?=$id?>/grades">Grades</a>
                 </li>
-                <li class="drop link" id="/profile/experience">
+                <li class="drop link">
                     <a href="/profile/<?=$id?>/experience">Experience</a>
                 </li>
-                <li class="drop link" id="/profile/hobbies">
+                <li class="drop link">
                     <a href="/profile/<?=$id?>/hobbies">Hobbies</a>
                 </li>
-                <li class="drop link" id="/profile/skills">
+                <li class="drop link">
                     <a href="/profile/<?=$id?>/skills">Skills</a>
                 </li>
-                <!--
-                <li class="drop link dropdown" id="route">
-                    <a href="">Route</a>
-                    <ul class="subbar">
-                        <li class="drop link" id="route">
-                            <a href="">Link</a>
-                        </li>
-                        <li class="drop link" id="route">
-                            <a href="">Link</a>
-                        </li>
-                    </ul>
-                </li>
-                -->
             </ul>
         </li>
-        <li class="nav link" id="profile/about">
+        <li class="nav link">
             <a href="/profile/<?=$id?>/about">About</a>
         </li>
-        <li class="nav link" id="profile/contact">
+        <li class="nav link">
             <a href="/profile/<?=$id?>/contact">Contact</a>
         </li>
 
     </ul>
+    <?php
+    if(isset($links)){
+        echo $links;
+    }
+    ?>
 </div>

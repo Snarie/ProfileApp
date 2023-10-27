@@ -11,7 +11,8 @@ function highlightActiveLink() {
     const links = document.querySelectorAll(query);
     if(links) {
         links.forEach(function(link) {
-            link.classList.add('active');
+            link.parentElement.classList.add('active');
+            // link.classList.add('active');
         })
     }
 }

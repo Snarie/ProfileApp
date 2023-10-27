@@ -1,9 +1,7 @@
 /*style for the base*/
 .menu {
-    /*--menu-height: 40px;*/
     width:inherit;
     box-sizing: border-box;
-    background-color: var(--main-color);
 }
 .menu-left {
     float:left;
@@ -19,49 +17,44 @@
     text-decoration: none;
     margin: 0;
     font-weight:700;
-    color: #fff;
     transition: 200ms;
     align-items: center;
     z-index: 1;
 }
-.menu .active {
-    color: var(--secondary-color);
-}
+/*navbar links coloring*/
+.menu .nav a         { color: var(--text-color); }
+.menu .nav.active a  { color: var(--text-color-2); }
+.menu .nav:hover a   { color: var(--text-color-2); }
+.menu .nav.active    { background-color: var(--main-color-3); }
+.menu .nav:hover     { background-color: var(--main-color-2); }
+.menu                { background-color: var(--main-color-4); }
+
+/*dropdown links coloring*/
+.menu .drop a        { color: var(--text-color); }
+.menu .drop.active a { color: var(--text-color-2); }
+.menu .drop:hover a  { color: var(--text-color-2); }
+.menu .drop.active   { background-color: var(--main-color-2); }
+.menu .drop:hover    { background-color: var(--secondary-color-3); }
+.menu .subbar        { background-color: var(--main-color-3); }
 
 .menu .navbar {
-    font-size: 24px;
     display: flex;
     height: inherit;
-    /*height: var(--menu-height);*/
-    /*background-color: var(--main-color);*/
 }
 
 .menu .navbar > * {
-    /*height:var(--menu-height);*/
     height: inherit;
     padding-left:10px;
 }
-.menu .nav:hover {
-    background-color: var(--tetriary-color);
-}
 
 .menu .subbar {
-    font-size: 20px;
-    background-color: var(--tetriary-color);
+    font-size: calc(100% - 1px);
     transition-delay: 200ms;
 }
 .menu .subbar > * {
     height: 30px;
     padding-left:8px;
 }
-.menu .drop:hover {
-    background-color: var(--main-color);
-}
-
-/*style of the box for a link*/
-.menu ul li,        .menu ul li a           { opacity: 0.8; }
-.menu ul li.active, .menu ul li.active a    { opacity: 0.9; }
-.menu ul li:hover,  .menu ul li a:hover     { opacity: 1; }
 
 /*style for the link*/
 .menu .link a {
@@ -87,6 +80,7 @@
 .menu .subbar .subbar {
     top: 0;
     left: 100%;
+    white-space: nowrap;
 }
 .menu .dropdown:hover > ul {
     opacity: 1;
@@ -95,10 +89,11 @@
 }
 
 
-/*vertical line between items on navbar (was :not(:last-child ))*/
-.menu .nav:not(:first-child)::before{
+/**vertical line between elements and first in right menu */
+.menu .nav:not(:first-child)::before,
+.menu .menu-right .nav:first-child::before{
     content:"";
-    border: solid #929292;
+    border: solid var(--main-color-5);
     border-width: 1px 1px 0 0;
     position:absolute;
     left:0;
@@ -111,22 +106,22 @@
     content: '';
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid var(--secondary-color);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--secondary-color-2);
     position: absolute;
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
 }
-/*arrow right (drop*/
+/*arrow right (drop)*/
 .menu .drop > a::before {
     content: '';
     width: 0;
     height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid var(--secondary-color);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid var(--secondary-color);
     position: absolute;
     right: 8px;
     top: 50%;
@@ -146,20 +141,20 @@
     height: 3px;
     left: 50%;
     bottom:0;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color-2);
     transition: all ease-in-out .15s;
 }
 /*line left>right*/
-.menu .drop:after{
-     content: '';
-     position: absolute;
-     width: 0;
-     height: 2px;
-     left: 0;
-     bottom:0;
-     background-color: var(--secondary-color);
-     transition: width ease-in .25s;
- }
+/*.menu .drop:after{*/
+/*     content: '';*/
+/*     position: absolute;*/
+/*     width: 0;*/
+/*     height: 2px;*/
+/*     left: 0;*/
+/*     bottom:0;*/
+/*     background-color: var(--secondary-color);*/
+/*     transition: width ease-in .25s;*/
+/* }*/
 /*display line*/
 .menu .link:hover::after{
     width: 100%;

@@ -12,23 +12,27 @@ require_once 'tools\DB.php';
 
 $routes = [
     "/" => "controllers/home.php",
+
+	"/login" => "controllers/login.php",
+	"/register" => "controllers/register.php",
+
     "/profile" => "controllers/profile/profile.php",
-    "/profile/details" => "controllers/profile/details.php",
+	"/profile/about" => "controllers/profile/about.php",
+	"/profile/contact" => "controllers/profile/contact.php",
+	"/profile/experience" => "controllers/profile/experience.php",
     "/profile/grades" => "controllers/profile/grades.php",
     "/profile/hobbies" => "controllers/profile/hobbies.php",
-    "/profile/experience" => "controllers/profile/experience.php",
     "/profile/skills" => "controllers/profile/skills.php",
-    "/profile/about" => "controllers/profile/about.php",
-    "/profile/contact" => "controllers/profile/contact.php",
-    "/login" => "controllers/login.php",
-    "/register" => "controllers/register.php"
+
+	"/edit/profile" => "controllers/edit/profile.php",
+	"/edit/about" => "controllers/edit/about.php",
+	"/edit/contact" => "controllers/edit/contact.php",
+	"/edit/experience" => "controllers/edit/experience.php",
+	"/edit/grades" => "controllers/edit/grades.php",
+	"/edit/hobbies" => "controllers/edit/hobbies.php",
+	"/edit/skills" => "controllers/edit/skills.php"
 ];
 
-//    "/details/cijfers" => "controllers/details/cijfers.php",
-//    "/details/ervaringen" => "controllers/details/ervaringen.php",
-//    "/details/hobbies" => "controllers/details/hobbies.php",
-//    "/details/profiel" => "controllers/details/profiel.php",
-//    "/details/profiel/settings" => "controllers/details/settings.php",
 
 
 

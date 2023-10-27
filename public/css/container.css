@@ -1,31 +1,43 @@
 /*style for the base*/
 .container {
-    /*--menu-height: 40px;*/
+    position: relative;
     width:inherit;
     box-sizing: border-box;
 }
 .container div {
     margin: 0;
     font-weight:bold;
-    color: #fff;
+    color: var(--text-color);
     align-items: center;
 }
 
-.container > div {
-    font-size: 24px;
+.container > div:not(.container):not(.list) {
+    position: relative;
     display: flex;
     height: inherit;
-    position: relative;
 }
 .container div a {
     display: flex;
     padding-top: 2px;
-    padding-top: 2px;
+    padding-bottom: 2px;
     padding-left: 5px;
     padding-right: 5px;
     height: 70%;
 }
 
+.flex-container {
+    display: flex;
+    width: inherit;
+}
+.flex-container * {
+    display: inline-block;
+}
+.flex-center {
+    justify-content: center;
+}
 
-
-
+.list {
+    width: inherit;
+    position: relative;
+    box-sizing: border-box;
+}

@@ -56,10 +56,17 @@ INSERT INTO hobbies_users (hobbyid, userid) VALUES
 (2,3),
 (3,1);
 describe hobbies;
-select h.name, u.username
-from hobbies_users hu
-         join users u on u.id = hu.userid
-         join hobbies h on h.id = hu.hobbyid;
+
+select h.name
+from hobbies_users
+join users u on u.id = hobbies_users.userid
+join hobbies h on h.id = hobbies_users.hobbyid
+where u.id = 1;
+
+select * from hobbies_users;
+
+
+select * from hobbies_users;
 
 select *
 from users
