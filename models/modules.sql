@@ -72,3 +72,6 @@ select *
 from users
 where users.username = 'Barry';
 
+select * from users;
+
+

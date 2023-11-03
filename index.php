@@ -1,34 +1,25 @@
 <?php
 require_once 'tools\DB.php';
-/**
- * Server variabelen
- * SERVER
- * GET
- * POST
- */
-//$App = parse_ini_file("env.ini", true);
-//$App = require 'private.php';
-// $dbconn = $App['database'];
 
 $routes = [
     "/" => "controllers/home.php",
+	"/home" => "controllers/home.php",
+	"/about" => "controllers/aboutus.php",
+	"/forum/faq" => "controllers/faq.php",
 
 	"/login" => "controllers/login.php",
 	"/register" => "controllers/register.php",
 
     "/profile" => "controllers/profile/profile.php",
-	"/profile/about" => "controllers/profile/about.php",
 	"/profile/contact" => "controllers/profile/contact.php",
 	"/profile/experience" => "controllers/profile/experience.php",
-    "/profile/grades" => "controllers/profile/grades.php",
     "/profile/hobbies" => "controllers/profile/hobbies.php",
     "/profile/skills" => "controllers/profile/skills.php",
 
-	"/edit/profile" => "controllers/edit/profile.php",
+	"/edit/picture" => "controllers/edit/picture.php",
 	"/edit/about" => "controllers/edit/about.php",
 	"/edit/contact" => "controllers/edit/contact.php",
 	"/edit/experience" => "controllers/edit/experience.php",
-	"/edit/grades" => "controllers/edit/grades.php",
 	"/edit/hobbies" => "controllers/edit/hobbies.php",
 	"/edit/skills" => "controllers/edit/skills.php"
 ];

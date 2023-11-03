@@ -1,12 +1,26 @@
 <?php
+$pageowner = $_GET['id'];
 if(!isset($_SESSION['user_id'])) {
+	header('Location: /login');
+	exit;
+}
+if($_SESSION['username'] !== $pageowner && $_SESSION['username'] !== "admin"){
+//	header('Location: /login');
 	header('Location: /login');
 	exit;
 }
 
 $search = $_POST['search'] ?? '';
 
+$url = $_SERVER['PATH_INFO'];
+$editpage = explode('/', $url)[2];
 $content = "
+<content>
+<div class='smallnav'>
+			<a href='/edit/about?id=$pageowner' class='". ($editpage === 'about' ? 'active': '')."'>Profile</a>
+			<a href='/edit/picture?id=$pageowner' class='". ($editpage === 'picture' ? 'active': '')."'>Picture</a>
+			<a href='/edit/hobbies?id=$pageowner' class='". ($editpage === 'hobbies' ? 'active': '')."'>Hobbies</a>
+		</div>
 	<form method='post'>
 		<div class='container row-default' >
 			<div class='flex-container flex-center'>
@@ -37,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$button = "<button type='submit' class='smallbtn status-add' name='addhobby' value='{$hobby['name']}'>Add</button>";
 		}
 		$content .= "
-			<tr $style>
+			<tr class='color-bordered'>
 				<td>
 					<h2 style='color: var(--secondary-color'>{$hobby['name']}</h2>			
 					<p style='font-size: 18px; '>{$hobby['description']}</p>
@@ -52,13 +66,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$content .= "
 			</tbody>
 		</table>
-		</form>";
+		</form>
+		</content>";
 
 }
 
 
-
-require 'views/edit.view.php';
+$returnpage = 'hobbies';
+require 'views/search-edit.view.php';
 
 function getUserHobbies($conn, $userId) {
 	$sql = "SELECT h.name FROM hobbies_users 

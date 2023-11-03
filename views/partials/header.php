@@ -1,30 +1,46 @@
 <header>
     <div class="container row-small" style="z-index: 5">
-        <div class="left"><a style="font-size: 30px;">ProfileApp</a></div>
+        <div class="left">
+            <a style="font-size: 30px;">ProfileApp</a>
+                <button onclick="displayLinks()" style="font-size: 40px; height:40px" class="material-symbols-outlined icon-button">menu</button>
+        </div>
         <div class="right">
             <div class="menu row-smaller" style="background-color: inherit">
                 <ul class="navbar">
                 <?php
                 if(isset($_SESSION['username'])) {
-                    echo '
+                    ?>
                     <li class="nav no-padding">
-                        <img class="icon-fit" src="/public/images/moveIcon_def.png" alt="profile">
+                        <?php
+                        $sql = "SELECT icon
+					            FROM profiles
+					            WHERE id = :userid AND icon IS NOT NULL";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bindParam(':userid', $_SESSION['user_id'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if($result) {
+	                        $iconName = "/public/images/profile_icons/".$result['icon'];
+                        } else {
+                            $iconName =  "/public/images/moveIcon_def.png";
+                        }
+                        ?>
+                        <img class="icon-fit" src="<?=$iconName?>" alt="profile">
                     </li>
                     <li class="nav link dropdown">
-                        <a href="/account">';
-                            echo $_SESSION['username'];
-                        echo'
+                        <a href="/account">
+                            <?= $_SESSION['username'];?>
                         </a>
                         <ul class="subbar">
                             <li class="drop link">
-                                <a href="/profile/'.$_SESSION['username'].'">Profile</a>
+                                <a href="/profile/<?=$_SESSION['username']?>">Profile</a>
                             </li>
                             <li class="drop link">
                                 <a href="/logout.php"><i class="material-symbols-outlined">logout</i>Logout</a>
                             </li>
                         </ul>
                     </li>
-                    ';
+                    <?php
                 } else {
                     echo '
                     <li class="nav link">
@@ -48,9 +64,6 @@
                 <ul class="subbar">
                     <li class="drop link">
                         <a href="/forum/faq">Faq</a>
-                    </li>
-                    <li class="drop link">
-                        <a href="/forum/boards">Boards</a>
                     </li>
                 </ul>
             </li>

@@ -9,11 +9,7 @@ require 'partials/header.php';
 		?>
 		<content>
 			<section>
-                    <?php
-                    if(isset($content)) {
-                        echo $content;
-                    }
-                    ?>
+				<?=$content?>
 			</section>
 		</content>
 	</main>

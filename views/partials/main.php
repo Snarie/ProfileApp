@@ -8,5 +8,5 @@
 //        echo"</section>";
     }
     ?>
-	<content><?php echo $content ?></content>
+	<content style="padding: 40px;"><?php echo $content ?></content>
 </main>

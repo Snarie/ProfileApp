@@ -1,7 +1,43 @@
-//var OneClick = document.getElementsById("#link");
-//OneClick.addEventListener('click', OnOneClick, false);
+window.addEventListener('load', hideOverflowing);
+window.addEventListener('resize', hideOverflowing);
+
+// function navElementWidth() {
+//     const menus = document.querySelectorAll('.menu');
+//     const menuWidths = [];
+//     let i = 0;
+//     menus.forEach( menu => {
+//         i++;
+//         const links = menu.querySelectorAll('.navbar > li');
+//         let usedWidth = 0;
+//         for(const link of links) {
+//             usedWidth += link.offsetWidth;
+//         }
+//         const menuWidths[i]
+//     })
+// }
+function hideOverflowing() {
+    const menus = document.querySelectorAll('.menu');
+    menus.forEach(menu => {
+        const menuWidth = menu.offsetWidth;
+        let usedWidth = 0;
+        const links = menu.querySelectorAll('.navbar > li');
+        for(const link of links) {
+            usedWidth += link.offsetWidth;
+        }
+        const subLinks = menu.querySelectorAll('.menu-left > li:not(:first-child)')
+        const hide = (usedWidth > menuWidth);
+        for(const subLink of subLinks) {
+            if(hide){
+                subLink.style.display = 'none';
+            } else {
+                subLink.style.display = 'flex';
+            }
+        }
+
+    })
+
+}
 document.addEventListener("DOMContentLoaded", function() {
-    // Your code here
     highlightActiveLink();
 });
 //only highlights links with current location

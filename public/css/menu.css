@@ -64,25 +64,49 @@ body {
 	height:100%;
 	background-color: var(--background-color);
 }
-@media screen and (max-width: 800px) {
+
+header > .container .icon-button {
+	display: none;
+}
+@media screen and (max-width: 1100px) {
 	header > .menu{
-		display: none;
+		position: fixed;
+		width: 100%;
+		z-index: 3;
+		background-color: var(--main-color-4);
+		top: 50px;
+		left: 0;
+		right: 0;
+	}
+	header > .container {
+		position: fixed;
+		width: 100%;
+		z-index: 5;
+		background-color: var(--main-color);
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	header > .container .icon-button {
+		display : flex;
 	}
 
 	body {
-		min-width: 500px;
+		min-width: 600px;
 		min-height: 500px;
 	}
 	.icon-text {
 		display: none;
 	}
 }
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 1101px) {
 	body {
 		/*max-width: 1600px;*/
 		margin: 4px auto;
 	}
 }
+
+
 
 .profile-icon-large {
 	width:100%;
@@ -247,6 +271,61 @@ table {
 	border-collapse: collapse;
 }
 table td {
-	border-bottom: 1px solid var(--main-color-5);
 	border-right: 0;
+}
+table tr.color-bordered {
+	border-bottom: 1px solid var(--main-color-5);
+}
+table tr.color-bordered:nth-child(even) {
+	background-color: var(--main-color-2);
+}
+table tr.header-row {
+	border-bottom: 3px solid var(--main-color-5);
+	background-color: var(--secondary-color-2);
+	width: 100%;
+}
+table.formtable {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 30px;
+}
+table.formtable tr:not(.header-row) {
+	height: 40px;
+}
+table.formtable select {
+	background-color: var(--main-color-5);
+	height: 30px;
+	font-size: 18px;
+}
+table.formtable input {
+	background-color: var(--main-color-5);
+	height: 30px;
+	font-size:18px;
+}
+table.formtable textarea {
+	background-color: var(--main-color-5);
+	font-size: 17px;
+	resize: none;
+}
+table.formtable button {
+	background-color: var(--secondary-color-2);
+	height: 35px;
+	font-size: 18px;
+	border: none;
+	border-radius: 8px; /* Adjust this value to control the button's curve */
+	color: white;
+	padding: 4px 12px;
+	cursor: pointer;
+}
+
+.even-colored:nth-child(even) {
+	background-color: #1b1b1b;
+}
+.odd-colored:nth-child(odd) {
+	background-color: #1b1b1b;
+}
+.icon-button {
+	background-color: inherit;
+	border: none;
 }

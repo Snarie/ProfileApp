@@ -9,9 +9,6 @@ $id = explode('/', $_SERVER['PATH_INFO'])[2];;
             <a>Details</a>
             <ul class="subbar">
                 <li class="drop link">
-                    <a href="/profile/<?=$id?>/grades">Grades</a>
-                </li>
-                <li class="drop link">
                     <a href="/profile/<?=$id?>/experience">Experience</a>
                 </li>
                 <li class="drop link">
@@ -22,12 +19,9 @@ $id = explode('/', $_SERVER['PATH_INFO'])[2];;
                 </li>
             </ul>
         </li>
-        <li class="nav link">
-            <a href="/profile/<?=$id?>/about">About</a>
-        </li>
-        <li class="nav link">
-            <a href="/profile/<?=$id?>/contact">Contact</a>
-        </li>
+<!--        <li class="nav link">-->
+<!--            <a href="/profile/--><?//=$id?><!--/contact">Contact</a>-->
+<!--        </li>-->
 
     </ul>
     <?php
